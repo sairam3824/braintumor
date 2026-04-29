@@ -1,6 +1,5 @@
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-import { Upload, Image, FileWarning } from "lucide-react";
 import { ACCEPTED_FORMATS } from "../utils/constants.js";
 
 export default function ImageUploader({ onFileSelect, preview, file, disabled }) {
@@ -33,9 +32,6 @@ export default function ImageUploader({ onFileSelect, preview, file, disabled })
 
         {!preview ? (
           <>
-            <div className="upload-icon">
-              <Upload size={28} />
-            </div>
             <p className="upload-title">
               {isDragActive
                 ? "Drop your MRI scan here..."
@@ -60,7 +56,6 @@ export default function ImageUploader({ onFileSelect, preview, file, disabled })
               id="image-preview"
             />
             <div className="image-info">
-              <Image size={16} />
               <span>{file?.name}</span>
               <span>·</span>
               <span>{(file?.size / 1024).toFixed(1)} KB</span>
@@ -71,7 +66,6 @@ export default function ImageUploader({ onFileSelect, preview, file, disabled })
 
       {fileRejections.length > 0 && (
         <div className="error-box" id="upload-error">
-          <FileWarning size={18} />
           <span>
             {fileRejections[0].errors[0]?.message ||
               "Invalid file. Please upload a valid image."}

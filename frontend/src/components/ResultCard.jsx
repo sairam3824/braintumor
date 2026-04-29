@@ -1,4 +1,3 @@
-import { ShieldCheck, ShieldAlert } from "lucide-react";
 import { CLASS_CONFIG } from "../utils/constants.js";
 
 export default function ResultCard({ result }) {
@@ -11,20 +10,12 @@ export default function ResultCard({ result }) {
     <div className="result-main glass-card" id="result-card">
       {/* Badge */}
       <div className={`result-badge ${is_tumor ? "tumor" : "no-tumor"}`}>
-        {is_tumor ? (
-          <>
-            <ShieldAlert size={14} /> Tumor Detected
-          </>
-        ) : (
-          <>
-            <ShieldCheck size={14} /> All Clear
-          </>
-        )}
+        {is_tumor ? "Tumor Detected" : "All Clear"}
       </div>
 
       {/* Class Name */}
       <h2 className="result-class" style={{ color: config.color }}>
-        {config.emoji} {config.label}
+        {config.label}
       </h2>
 
       {/* Description */}

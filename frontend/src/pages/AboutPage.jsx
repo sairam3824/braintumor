@@ -24,26 +24,18 @@ export default function AboutPage() {
 
   const cards = [
     {
-      icon: "🧠",
-      bg: "rgba(139,92,246,0.1)",
       title: "Deep Learning Autoencoder",
       text: "A convolutional denoising autoencoder with 3 encoding layers, a 128-unit bottleneck, and 3 transpose-conv decoding layers. Trained on brain MRI images to learn compressed representations.",
     },
     {
-      icon: "📊",
-      bg: "rgba(6,182,212,0.1)",
       title: "PCA + SVM Classifier",
       text: "Principal Component Analysis reduces features to 50 dimensions. A Support Vector Machine with RBF kernel (C=300, γ=0.01) performs the final 4-class classification.",
     },
     {
-      icon: "🏥",
-      bg: "rgba(16,185,129,0.1)",
       title: "4 Tumor Classes",
       text: "Glioma, Meningioma, Pituitary tumors, and No Tumor. The model provides per-class probability scores alongside the top prediction.",
     },
     {
-      icon: "⚡",
-      bg: "rgba(245,158,11,0.1)",
       title: "Real-Time Inference",
       text: "Models are loaded once at server startup. Each prediction completes in under a second, providing instant feedback to clinicians.",
     },
@@ -63,12 +55,6 @@ export default function AboutPage() {
       <div className="about-grid">
         {cards.map((c) => (
           <div key={c.title} className="about-card glass-card">
-            <div
-              className="about-card-icon"
-              style={{ background: c.bg }}
-            >
-              {c.icon}
-            </div>
             <h3 className="about-card-title">{c.title}</h3>
             <p className="about-card-text">{c.text}</p>
           </div>

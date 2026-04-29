@@ -1,4 +1,3 @@
-import { Scan, RotateCcw } from "lucide-react";
 import ImageUploader from "../components/ImageUploader.jsx";
 import ResultCard from "../components/ResultCard.jsx";
 import ProbabilityChart from "../components/ProbabilityChart.jsx";
@@ -52,10 +51,10 @@ export default function HomePage() {
               disabled={!file}
               id="predict-btn"
             >
-              <Scan size={18} /> Analyze Scan
+              Analyze Scan
             </button>
             <button className="btn-secondary" onClick={reset} id="reset-btn">
-              <RotateCcw size={18} /> Reset
+              Reset
             </button>
           </div>
         )}
@@ -74,7 +73,6 @@ export default function HomePage() {
         {/* Error State */}
         {error && (
           <div className="error-box" id="error-message">
-            <span>⚠️</span>
             <span>{error}</span>
           </div>
         )}
@@ -91,7 +89,7 @@ export default function HomePage() {
           {/* Analyze another */}
           <div style={{ textAlign: "center", marginTop: 32 }}>
             <button className="btn-secondary" onClick={reset} id="analyze-another-btn">
-              <RotateCcw size={18} /> Analyze Another Scan
+              Analyze Another Scan
             </button>
           </div>
         </div>

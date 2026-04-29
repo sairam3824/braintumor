@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Brain, Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,9 +11,6 @@ export default function Navbar() {
     <nav className="navbar" id="main-nav">
       <div className="navbar-inner">
         <NavLink to="/" className="navbar-brand" onClick={() => setMenuOpen(false)}>
-          <span className="navbar-brand-icon">
-            <Brain size={20} color="#fff" />
-          </span>
           NeuroScan AI
         </NavLink>
 
@@ -24,7 +20,7 @@ export default function Navbar() {
           aria-label="Toggle menu"
           id="mobile-menu-toggle"
         >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          {menuOpen ? "Close" : "Menu"}
         </button>
 
         <ul className={`navbar-links${menuOpen ? " open" : ""}`}>

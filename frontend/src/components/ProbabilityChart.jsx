@@ -16,7 +16,7 @@ export default function ProbabilityChart({ probabilities }) {
             <div key={className} className="prob-item">
               <div className="prob-label-row">
                 <span className="prob-label">
-                  {config.emoji || ""} {config.label || className}
+                  {config.label || className}
                 </span>
                 <span className="prob-value">{prob.toFixed(1)}%</span>
               </div>

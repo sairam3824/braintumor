@@ -36,9 +36,21 @@ IMG_SIZE = 128
 print("Loading models...")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-autoencoder = load_model(os.path.join(BASE_DIR, "models", "advanced_autoencoder.keras"))
-svm = joblib.load(os.path.join(BASE_DIR, "models", "svm_model.pkl"))
-pca = joblib.load(os.path.join(BASE_DIR, "models", "pca_model.pkl"))
+AUTOENCODER_PATH = os.path.join(BASE_DIR, "models", "advanced_autoencoder.keras")
+SVM_PATH = os.path.join(BASE_DIR, "models", "svm_model.pkl")
+PCA_PATH = os.path.join(BASE_DIR, "models", "pca_model.pkl")
+
+for model_path in (AUTOENCODER_PATH, SVM_PATH, PCA_PATH):
+    if not os.path.exists(model_path):
+        raise FileNotFoundError(
+            f"Required model file not found: {model_path}. "
+            "If deploying to Render, set ADVANCED_AUTOENCODER_URL and run "
+            "python download_models.py during the build step."
+        )
+
+autoencoder = load_model(AUTOENCODER_PATH)
+svm = joblib.load(SVM_PATH)
+pca = joblib.load(PCA_PATH)
 
 # Build encoder (bottleneck extractor) once
 encoder = Model(

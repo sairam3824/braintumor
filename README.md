@@ -34,7 +34,7 @@ Recommended settings:
 
 - Root Directory: `BrainTumorClass`
 - Runtime: `Python 3`
-- Build Command: `pip install -r requirements.txt`
+- Build Command: `pip install -r requirements.txt && python download_models.py`
 - Start Command: `gunicorn api:app --bind 0.0.0.0:$PORT --workers 1 --timeout 180`
 - Health Check Path: `/api/health`
 
@@ -42,8 +42,19 @@ Environment variables:
 
 - `PYTHON_VERSION=3.10.13`
 - `FRONTEND_ORIGIN=https://your-vercel-app.vercel.app`
+- `ADVANCED_AUTOENCODER_URL=https://your-direct-download-url/advanced_autoencoder.keras`
+- `ADVANCED_AUTOENCODER_SHA256=optional_sha256_checksum`
 
 This repo also includes `render.yaml`, so Render Blueprint deploys can use the same settings automatically.
+
+The large `advanced_autoencoder.keras` model is ignored by Git because it is
+around GitHub's file-size limit. Upload that file to storage that can provide a
+direct download URL, then set `ADVANCED_AUTOENCODER_URL` in Render. The two
+small model files, `svm_model.pkl` and `pca_model.pkl`, should stay committed in
+`BrainTumorClass/models/`.
+
+If Render shows `ModuleNotFoundError: No module named 'app'`, the Start Command
+is wrong. This project must use `api:app`, not `app:app`.
 
 ### Frontend on Vercel
 

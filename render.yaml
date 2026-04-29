@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: brain-tumor-class-api
+    env: python
+    rootDir: BrainTumorClass
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn api:app --bind 0.0.0.0:$PORT --workers 1 --timeout 180
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.13
+      - key: FRONTEND_ORIGIN
+        sync: false

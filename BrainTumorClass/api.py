@@ -17,7 +17,12 @@ from src.xai_gradcam import build_gradcam_model, generate_heatmap, create_overla
 # App Setup
 # ============================================================
 app = Flask(__name__)
-CORS(app)
+
+frontend_origin = os.environ.get("FRONTEND_ORIGIN")
+if frontend_origin:
+    CORS(app, resources={r"/api/*": {"origins": frontend_origin}})
+else:
+    CORS(app)
 
 UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "temp_uploads")
 os.makedirs(UPLOAD_DIR, exist_ok=True)
@@ -169,4 +174,5 @@ def get_classes():
 # Run Server
 # ============================================================
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=False)
+    port = int(os.environ.get("PORT", 5001))
+    app.run(host="0.0.0.0", port=port, debug=False)

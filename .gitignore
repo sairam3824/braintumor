@@ -27,6 +27,7 @@ BrainTumorClass/dataset/
 
 # Large/generated ML outputs
 *.h5
+*.keras
 *.pt
 *.pth
 *.onnx

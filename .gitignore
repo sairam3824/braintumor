@@ -1,0 +1,53 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Conda
+.conda/
+
+# Backend runtime files
+BrainTumorClass/temp_uploads/
+BrainTumorClass/dataset/
+
+# Large/generated ML outputs
+*.h5
+*.pt
+*.pth
+*.onnx
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.*
+frontend/.env
+frontend/.env.*
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+*.swo
